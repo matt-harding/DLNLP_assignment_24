@@ -1,0 +1,11 @@
+\begin{thebibliography}{1}
+
+\bibitem{huggingface_dataset}
+Yahoo! answers huggingface dataset.
+\newblock \url{https://huggingface.co/datasets/yahoo_answers_topics}.
+
+\bibitem{yahoo_webscope}
+Yahoo! research alliance webscope.
+\newblock \url{https://webscope.sandbox.yahoo.com/}.
+
+\end{thebibliography}

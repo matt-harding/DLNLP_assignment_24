@@ -7,9 +7,9 @@
 \usepackage{graphicx}
 \graphicspath{ {./images/} } 
 
-\title{Happywhale - Whale and Dolphin Identification}
+\title{Thematic classification of questions}
 \author{Matthew Harding [Student ID - MHARD94]}
-\date{April 2024}
+\date{May 2024}
 
 \begin{document}
 
@@ -20,8 +20,50 @@
 
 \section{Introduction}
 
+The aim of this project was to benchmark the performance of several techniques for classifying the theme of a question. The hypothesis being that 
+the wording of a questions, without the addition of other context or metadata, is sufficient to classify a question to a general theme.
+ 
 
 \section{Training Data}
+
+The Yahoo! Answers topic classification dataset \cite{huggingface_dataset} is a set of set of questions grouped by topic taken from the Yahoo! Answers corpus as of 10/25/2007.
+The data was obtained through the Yahoo! Research Alliance Webscope program \cite{yahoo_webscope}.
+
+
+The dataset contains a training set 1,400,000 questions. Luckily, the dataset is evenly split across the 10 categories so there is no issue of class imbalance. 
+60,000 additional questions are reserved for testing. Again the test questions are evenly split across the categories. 
+
+\begin{center}
+    \begin{tabular}{||c c c c||} 
+     \hline
+     Topic Code & Topic Label & Training Count & Test Count \\ [0.5ex] 
+     \hline\hline
+     0 & Society \& Culture & 140000 & 6000 \\ 
+     \hline
+     1 & Science \& Mathematics & 140000 & 6000 \\ 
+     \hline
+     2 & Health & 140000 & 6000 \\
+     \hline
+     3 & Education \& Reference & 140000 & 6000 \\
+     \hline
+     4 & Computers \& Internet & 140000 & 6000 \\
+     \hline
+     5 & Sports & 140000 & 6000 \\ 
+     \hline
+     6 & Business \& Finance & 140000 & 6000 \\ 
+     \hline
+     7 & Entertainment \& Music & 140000 & 6000 \\
+     \hline
+     8 & Family \& Relationships & 140000 & 6000 \\
+     \hline
+     9 & Polotics \& Government & 140000 & 6000 \\ [1ex] 
+     \hline
+    \end{tabular}
+    \end{center}
+
+The **Datasets** library from Huggingface was used to pull the data. For each question, there is a a topic label, question title, question content and best answer. For 
+this project, we consider the topic to combination of question title and question content to be the classification input and the topic label to be the classifcation output. 
+The best answer value was disregarded for this task.
 
 \bibliographystyle{plain}
 \bibliography{references}
