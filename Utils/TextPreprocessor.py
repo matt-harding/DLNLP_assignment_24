@@ -13,7 +13,7 @@ class TextPreprocessor():
         # Lowercase text
         text = text.lower()
 
-        # Remove puncuation
+        # Remove punctuation
         translator = str.maketrans('', '', string.punctuation)
         text = text.translate(translator)
 

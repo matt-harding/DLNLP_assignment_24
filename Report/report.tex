@@ -61,13 +61,22 @@ The dataset contains a training set 1,400,000 questions. Luckily, the dataset is
     \end{tabular}
     \end{center}
 
-The **Datasets** library from Huggingface was used to pull the data. For each question, there is a a topic label, question title, question content and best answer. For 
+The \textbf{Datasets} library from \textbf{Huggingface} was used to pull the data. For each question, there is a a topic label, question title, question content and best answer. For 
 this project, we consider the topic to combination of question title and question content to be the classification input and the topic label to be the classifcation output. 
 The best answer value was disregarded for this task.
 
 \section{Data Preprocessing}
 
-Coming soon
+First, the question title and content were combined into a single string. 
+All the text was then converted to lowercase and punctuation was removed.
+
+Using the Python Natual Language Toolkit, stop words were removed. Stop words, such as "the" or "in", are removed to reduce noise and highlight keywords that carry essentual meaning.
+If the task was one where context is required such as machine translation, stop words would be retained. 
+
+Lastly, the text is lemmatized, again using the Python Natual Language Toolkit. Lemmatization is used to reduce a word to it's base form. Unlike stemming which merely removes common suffixes from the end of word tokens, lemmatization considers the context and meaning of a word
+ ensuring the output word is an existing word that can be found in the dictionary. This is important for the zero-shot model where invalid English will cause classification errors.
+
+
 
 \section{}
 
